@@ -15,45 +15,33 @@ body {
     align-items: center;
 }
 
-.navbar a {
-    color: #fff;
-    margin-left: 1em;
-    text-decoration: none;
-}
-
 .hero {
+    height: 400px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
     text-align: center;
-    background: url('../assets/images/hero.jpg') no-repeat center center/cover;
-    color: #fff;
-    padding: 5em 1em;
 }
 
-.hero-content h2 {
-    font-size: 2.5em;
-}
-
-.btn {
-    background: #57a773;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.form-container {
-    padding: 2em;
-    max-width: 600px;
-    margin: 2em auto;
-    background: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+.hero .btn {
+    margin: 1em;
 }
 
 .product-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 2em;
     justify-content: center;
-    margin: 2em;
+    gap: 1em;
+    padding: 1em;
 }
 
+.product-item {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1em;
+    max-width: 200px;
+    text-align: center;
+}
