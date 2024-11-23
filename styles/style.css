@@ -45,3 +45,66 @@ body {
     max-width: 200px;
     text-align: center;
 }
+.form-container {
+    padding: 2em;
+    max-width: 600px;
+    margin: 2em auto;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.form-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+.form-toggle .btn {
+    background: #e0e0e0;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.form-toggle .btn.active {
+    background: #57a773;
+    color: white;
+}
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.registration-form label {
+    margin-top: 1em;
+    font-weight: bold;
+}
+
+.registration-form input,
+.registration-form textarea {
+    padding: 0.5em;
+    margin-top: 0.5em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn {
+    background: #57a773;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1em;
+    align-self: flex-start;
+}
