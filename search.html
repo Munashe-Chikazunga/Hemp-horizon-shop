@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Marketplace</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <h1>Search the Marketplace</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+    <main class="search-container">
+        <form id="search-form">
+            <input type="text" id="search" name="search" placeholder="Search for products..." required>
+            <button type="submit" class="btn">Search</button>
+        </form>
+        <div class="product-list" id="product-list">
+            <!-- Product cards dynamically loaded via JavaScript -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Hemp Horizon Shop</p>
+    </footer>
+    <script src="../scripts/app.js"></script>
+</body>
+</html>
