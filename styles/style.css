@@ -137,6 +137,77 @@ body {
     font-weight: bold;
 }
 
+/* Cart Page Styling */
+.cart-page {
+    background: white;
+    padding: 2em;
+    margin-top: 2em;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.cart-page h2 {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+.cart-item {
+    list-style: none;
+    margin: 1em 0;
+    padding: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f4f4f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.cart-item button {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.cart-item button:hover {
+    background: #e60000;
+}
+
+.btn {
+    background: #57a773;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1em;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background: #459960;
+}
+
+.btn.secondary {
+    background: #004d40;
+}
+
+.btn.secondary:hover {
+    background: #00332d;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: 2em;
+}
 .registration-form input, 
 .registration-form textarea, 
 .cart-page input, 
