@@ -98,6 +98,53 @@ document.addEventListener("DOMContentLoaded", () => {
         alert(`${productName} has been removed from your cart.`);
         updateCartDisplay();
     };
+document.addEventListener("DOMContentLoaded", () => {
+    // Cart Management
+    let cart = [];
+    const cartItems = document.getElementById("cart-items");
+    const checkoutButton = document.getElementById("checkout-button");
+
+    window.addToCart = (productName) => {
+        cart.push(productName);
+        alert(`${productName} has been added to your cart.`);
+        updateCartDisplay();
+    };
+
+    const updateCartDisplay = () => {
+        if (cartItems) {
+            if (cart.length > 0) {
+                cartItems.innerHTML = cart
+                    .map((item, index) => `
+                        <li class="cart-item">
+                            ${item}
+                            <button class="btn secondary" onclick="removeFromCart(${index})">Remove</button>
+                        </li>
+                    `)
+                    .join("");
+            } else {
+                cartItems.innerHTML = "<p>Your cart is empty.</p>";
+            }
+        }
+    };
+
+    window.removeFromCart = (index) => {
+        const removedItem = cart.splice(index, 1);
+        alert(`${removedItem} has been removed from your cart.`);
+        updateCartDisplay();
+    };
+
+    if (checkoutButton) {
+        checkoutButton.addEventListener("click", () => {
+            if (cart.length > 0) {
+                alert("Checkout successful! Thank you for your purchase.");
+                cart = [];
+                updateCartDisplay();
+            } else {
+                alert("Your cart is empty. Add items to proceed.");
+            }
+        });
+    }
+});
 
     // Checkout Simulation
     const checkoutButton = document.getElementById("checkout-button");
