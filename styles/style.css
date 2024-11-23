@@ -247,6 +247,55 @@ footer {
 .btn.secondary:hover {
     background: #00332d;
 }
+/* Product List */
+.product-list-container {
+    padding: 2em 0;
+    background: white;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1em;
+    justify-content: center;
+}
+
+.product-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+.product-item img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 1em;
+}
+
+.product-item h3 {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+.product-item p {
+    margin: 0.5em 0;
+    font-size: 0.9em;
+}
+
+.product-item .btn {
+    background: #004d40;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-item .btn:hover {
+    background: #00332d;
+}
 
 /* Product List */
 .product-list {
