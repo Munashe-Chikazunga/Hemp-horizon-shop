@@ -3,51 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketplace</title>
+    <title>Marketplace - Hemp Horizon Shop</title>
     <link rel="stylesheet" href="/styles/style.css">
+    <script defer src="/scripts/app.js"></script>
 </head>
 <body>
     <header class="navbar">
-        <h1>Hemp Horizon Marketplace</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="cart.html">Cart</a>
-        </nav>
+        <div class="container">
+            <h1>Hemp Horizon Shop</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="register.html">Register</a>
+                <a href="add-product.html">Add Product</a>
+                <a href="cart.html">Cart</a>
+            </nav>
+        </div>
     </header>
     <main>
         <!-- Search Bar -->
-        <form id="search-form" class="search-bar">
-            <input type="text" id="search" placeholder="Search for products..." required>
-            <button type="submit" class="btn">Search</button>
-        </form>
+        <section class="search-container">
+            <div class="container">
+                <h2>Find Your Hemp Products</h2>
+                <form id="search-form" class="search-bar">
+                    <input type="text" id="search" placeholder="Search for products..." required>
+                    <button type="submit" class="btn">Search</button>
+                </form>
+            </div>
+        </section>
 
         <!-- Product List -->
-        <div class="product-list">
-            <div class="product-item">
-                <img src="/assets/images/hemp-oil.jpg" alt="Hemp Oil">
-                <h3>Hemp Oil</h3>
-                <p>$19.99</p>
-                <p>Pure and organic hemp oil for wellness.</p>
-                <button class="btn">Add to Cart</button>
+        <section class="product-list-container">
+            <div class="container">
+                <h2>Available Products</h2>
+                <div id="product-list" class="product-list">
+                    <!-- Products will be dynamically loaded here -->
+                </div>
             </div>
-            <div class="product-item">
-                <img src="/assets/images/hemp-seeds.jpg" alt="Hemp Seeds">
-                <h3>Hemp Seeds</h3>
-                <p>$9.99</p>
-                <p>High-quality hemp seeds for nutrition.</p>
-                <button class="btn">Add to Cart</button>
-            </div>
-            <div class="product-item">
-                <img src="/assets/images/hemp-lotion.jpg" alt="Hemp Lotion">
-                <h3>Hemp Lotion</h3>
-                <p>$14.99</p>
-                <p>Moisturizing hemp lotion for your skin.</p>
-                <button class="btn">Add to Cart</button>
-            </div>
-        </div>
+        </section>
     </main>
     <footer>
-        <p>&copy; 2024 Hemp Horizon Shop</p>
+        <div class="container">
+            <p>&copy; 2024 Hemp Horizon Shop</p>
+        </div>
     </footer>
 </body>
 </html>
