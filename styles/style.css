@@ -136,6 +136,75 @@ body {
     margin-top: 1em;
     font-weight: bold;
 }
+/* About Section */
+.about {
+    text-align: center;
+    margin: 3em 0;
+}
+
+/* Services Section */
+.services {
+    margin: 3em 0;
+    text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2em;
+    margin-top: 2em;
+}
+
+.service-item {
+    padding: 1.5em;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.service-item .btn {
+    margin-top: 1em;
+}
+
+/* Featured Products Section */
+.featured-products {
+    margin: 3em 0;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2em;
+    margin-top: 2em;
+}
+
+.product-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: white;
+    text-align: center;
+    padding: 1em;
+}
+
+.product-item img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 1em;
+}
+
+.product-item .btn {
+    margin-top: 1em;
+}
+
+/* Call-to-Action Section */
+.cta {
+    margin-top: 3em;
+    padding: 2em;
+    text-align: center;
+    background-color: #004d40;
+    color: white;
+}
 
 /* Cart Page Styling */
 .cart-page {
