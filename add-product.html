@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product - Hemp Horizon Shop</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <script defer src="/scripts/app.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <h1>Hemp Horizon Shop</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="search.html">Marketplace</a>
+                <a href="cart.html">Cart</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container form-container">
+            <h2>Add a Product</h2>
+            <form id="add-product-form">
+                <label for="product-name">Product Name</label>
+                <input type="text" id="product-name" name="product-name" placeholder="Enter product name" required>
+
+                <label for="product-seller">Seller Name</label>
+                <input type="text" id="product-seller" name="product-seller" placeholder="Enter seller's name" required>
+
+                <label for="product-location">Seller Location</label>
+                <input type="text" id="product-location" name="product-location" placeholder="City, Country" required>
+
+                <label for="product-price">Price per Unit</label>
+                <input type="number" id="product-price" name="product-price" placeholder="Enter price" required>
+
+                <label for="product-unit">Unit of Measurement</label>
+                <input type="text" id="product-unit" name="product-unit" placeholder="E.g., per liter, per kg" required>
+
+                <label for="product-description">Description</label>
+                <textarea id="product-description" name="product-description" rows="3" placeholder="Enter product description"></textarea>
+
+                <label for="product-image">Product Image URL</label>
+                <input type="text" id="product-image" name="product-image" placeholder="Enter image URL" required>
+
+                <button type="submit" class="btn">Add Product</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Hemp Horizon Shop</p>
+        </div>
+    </footer>
+</body>
+</html>
