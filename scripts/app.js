@@ -160,3 +160,96 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const products = [
+        { 
+            name: "Hemp Oil", 
+            seller: "John's Hemp", 
+            location: "Denver, USA", 
+            price: "19.99", 
+            unit: "per liter", 
+            description: "Organic hemp oil for wellness.", 
+            image: "/assets/images/hemp-oil.jpg" 
+        },
+        { 
+            name: "Hemp Lotion", 
+            seller: "Green Glow", 
+            location: "Seattle, USA", 
+            price: "14.99", 
+            unit: "per bottle", 
+            description: "Moisturizing hemp lotion for skincare.", 
+            image: "/assets/images/hemp-lotion.jpg" 
+        },
+        // Add more predefined products
+    ];
+
+    const productList = document.getElementById("product-list");
+    const searchForm = document.getElementById("search-form");
+    const searchInput = document.getElementById("search");
+    const addProductForm = document.getElementById("add-product-form");
+
+    // Render Products
+    const renderProducts = (query = "") => {
+        productList.innerHTML = ""; // Clear the product list
+        const filteredProducts = products.filter((product) =>
+            product.name.toLowerCase().includes(query.toLowerCase())
+        );
+
+        if (filteredProducts.length > 0) {
+            filteredProducts.forEach((product) => {
+                const productHTML = `
+                    <div class="product-item">
+                        <img src="${product.image}" alt="${product.name}">
+                        <h3>${product.name}</h3>
+                        <p><strong>Seller:</strong> ${product.seller}</p>
+                        <p><strong>Location:</strong> ${product.location}</p>
+                        <p><strong>Price:</strong> $${product.price} ${product.unit}</p>
+                        <p>${product.description}</p>
+                        <button class="btn" onclick="addToCart('${product.name}')">Add to Cart</button>
+                    </div>
+                `;
+                productList.insertAdjacentHTML("beforeend", productHTML);
+            });
+        } else {
+            productList.innerHTML = "<p>No products match your search. Please try a different term.</p>";
+        }
+    };
+
+    // Initialize with all products
+    if (productList) renderProducts();
+
+    // Handle Search
+    if (searchForm && searchInput) {
+        searchForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const query = searchInput.value.trim();
+            renderProducts(query);
+        });
+    }
+
+    // Handle Adding New Products
+    if (addProductForm) {
+        addProductForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const newProduct = {
+                name: document.getElementById("product-name").value,
+                seller: document.getElementById("product-seller").value,
+                location: document.getElementById("product-location").value,
+                price: document.getElementById("product-price").value,
+                unit: document.getElementById("product-unit").value,
+                description: document.getElementById("product-description").value,
+                image: document.getElementById("product-image").value,
+            };
+            products.push(newProduct);
+            alert("Product added successfully!");
+            addProductForm.reset();
+        });
+    }
+
+    // Cart Functionality
+    let cart = [];
+    window.addToCart = (productName) => {
+        cart.push(productName);
+        alert(`${productName} has been added to your cart.`);
+    };
+});
