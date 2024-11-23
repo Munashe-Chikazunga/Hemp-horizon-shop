@@ -372,3 +372,23 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+// Handle Contact Form Submission
+const contactForm = document.getElementById("contact-form");
+if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const contactDetails = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            subject: document.getElementById("subject").value,
+            message: document.getElementById("message").value,
+        };
+
+        console.log("Contact Details Submitted:", contactDetails);
+
+        // Simulate sending message
+        alert("Thank you for contacting us! We will get back to you soon.");
+        contactForm.reset();
+    });
+}
