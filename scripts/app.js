@@ -1,21 +1,23 @@
-const cart = [];
+document.getElementById('search-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const query = document.getElementById('search').value.toLowerCase();
+    const productList = document.getElementById('product-list');
 
-function addToCart(productName) {
-    cart.push(productName);
-    alert(`${productName} has been added to your cart.`);
-    updateCart();
-}
+    const products = [
+        { name: 'Hemp Oil', price: 19.99 },
+        { name: 'Hemp Lotion', price: 14.99 },
+        { name: 'Hemp Seeds', price: 9.99 },
+    ];
 
-function updateCart() {
-    const cartItems = document.getElementById('cart-items');
-    if (cartItems) {
-        cartItems.innerHTML = cart.map(item => `<li>${item}</li>`).join('');
-    }
-}
+    const results = products.filter(product =>
+        product.name.toLowerCase().includes(query)
+    );
 
-function checkout() {
-    alert('Checkout successful! Thank you for your purchase.');
-    cart.length = 0;
-    updateCart();
-}
-
+    productList.innerHTML = results.map(product => `
+        <div class="product-item">
+            <h3>${product.name}</h3>
+            <p>$${product.price.toFixed(2)}</p>
+            <button class="btn">Add to Cart</button>
+        </div>
+    `).join('');
+});
