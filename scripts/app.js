@@ -253,3 +253,122 @@ document.addEventListener("DOMContentLoaded", () => {
         alert(`${productName} has been added to your cart.`);
     };
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const dbName = "HempHorizonDB";
+    let db;
+
+    // Initialize IndexedDB
+    const openRequest = indexedDB.open(dbName, 1);
+
+    openRequest.onupgradeneeded = (e) => {
+        db = e.target.result;
+
+        // Create user store
+        if (!db.objectStoreNames.contains("users")) {
+            const userStore = db.createObjectStore("users", { keyPath: "username" });
+            userStore.createIndex("password", "password", { unique: false });
+        }
+
+        // Create product store
+        if (!db.objectStoreNames.contains("products")) {
+            db.createObjectStore("products", { autoIncrement: true });
+        }
+    };
+
+    openRequest.onsuccess = (e) => {
+        db = e.target.result;
+        console.log("Database initialized successfully.");
+    };
+
+    openRequest.onerror = (e) => {
+        console.error("Error initializing database:", e.target.errorCode);
+    };
+
+    // Add User to Database
+    const addUser = (user) => {
+        const transaction = db.transaction("users", "readwrite");
+        const store = transaction.objectStore("users");
+        const request = store.add(user);
+
+        request.onsuccess = () => {
+            alert("User registered successfully.");
+        };
+
+        request.onerror = (e) => {
+            alert("Error registering user: " + e.target.error);
+        };
+    };
+
+    // Validate Login
+    const validateLogin = (username, password) => {
+        const transaction = db.transaction("users", "readonly");
+        const store = transaction.objectStore("users");
+        const request = store.get(username);
+
+        request.onsuccess = (e) => {
+            const user = e.target.result;
+            if (user && user.password === password) {
+                alert("Login successful!");
+                // Redirect to Marketplace or another page
+                window.location.href = "search.html";
+            } else {
+                alert("Invalid username or password.");
+            }
+        };
+
+        request.onerror = () => {
+            alert("Error fetching user details.");
+        };
+    };
+
+    // Add Product to Database
+    const addProduct = (product) => {
+        const transaction = db.transaction("products", "readwrite");
+        const store = transaction.objectStore("products");
+        store.add(product);
+    };
+
+    // Handle Registration
+    const registerForm = document.getElementById("register-form");
+    if (registerForm) {
+        registerForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const newUser = {
+                username: document.getElementById("username").value,
+                password: document.getElementById("password").value,
+            };
+            addUser(newUser);
+        });
+    }
+
+    // Handle Login
+    const loginForm = document.getElementById("login-form");
+    if (loginForm) {
+        loginForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            validateLogin(username, password);
+        });
+    }
+
+    // Handle Adding Products
+    const addProductForm = document.getElementById("add-product-form");
+    if (addProductForm) {
+        addProductForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const newProduct = {
+                name: document.getElementById("product-name").value,
+                seller: document.getElementById("product-seller").value,
+                location: document.getElementById("product-location").value,
+                price: document.getElementById("product-price").value,
+                unit: document.getElementById("product-unit").value,
+                description: document.getElementById("product-description").value,
+                image: document.getElementById("product-image").value,
+            };
+            addProduct(newProduct);
+            alert("Product added successfully!");
+            addProductForm.reset();
+        });
+    }
+});
