@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hemp Product Details</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>Hemp Horizon Shop</h1>
+        <nav>
+            <a href="products.html">Back to Products</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+    <main>
+        <section class="product-detail">
+            <img src="../assets/images/product1.jpg" alt="Hemp Oil">
+            <h3>Hemp Oil</h3>
+            <p>$19.99</p>
+            <p>Pure and organic hemp oil for all your wellness needs.</p>
+            <button class="btn" onclick="addToCart('Hemp Oil')">Add to Cart</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Hemp Horizon Shop</p>
+    </footer>
+    <script src="../scripts/app.js"></script>
+</body>
+</html>
