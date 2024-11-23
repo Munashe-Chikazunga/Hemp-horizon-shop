@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hemp Horizon Shop</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
     <header class="navbar">
@@ -13,93 +13,110 @@
             <nav>
                 <a href="register.html">Register</a>
                 <a href="search.html">Marketplace</a>
-                <a href="cart.html">Cart</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
+                <a href="add-product.html">Add Product</a>
+                <a href="contact.html">Contact</a>
+                <a href="login.html">Login</a>
             </nav>
         </div>
     </header>
-
     <main>
         <!-- Hero Section -->
-        <section class="hero" style="background-image: url('assets/images/weed-farm.jpg');">
-            <div class="container hero-content">
-                <h2>Your Trusted Hemp Marketplace</h2>
-                <p>Buy and sell hemp products with ease and confidence.</p>
+        <section class="hero" style="background-image: url('/assets/images/hero-banner.jpg');">
+            <div class="hero-content">
+                <h2>Welcome to Hemp Horizon Shop</h2>
+                <p>Your trusted marketplace for premium hemp products.</p>
                 <a href="search.html" class="btn">Explore Marketplace</a>
+                <a href="register.html" class="btn secondary">Join Us</a>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="about">
-            <div class="container">
-                <h2>About Hemp Horizon Shop</h2>
-                <p>
-                    Hemp Horizon Shop is a platform dedicated to connecting buyers and sellers in the hemp industry. We provide
-                    a safe, reliable marketplace for high-quality hemp products, including oils, lotions, seeds, and more.
-                </p>
-                <ul>
-                    <li>Trusted and verified sellers.</li>
-                    <li>Secure transactions with buyer protection.</li>
-                    <li>Eco-friendly and sustainable products.</li>
-                </ul>
+        <section class="about container">
+            <h2>About Hemp Horizon Shop</h2>
+            <p>
+                Hemp Horizon Shop connects buyers and sellers in the hemp industry. Whether you're looking for hemp oils, lotions, seeds, or more,
+                we provide a secure platform for eco-friendly, sustainable products.
+            </p>
+            <p>
+                Our goal is to empower small businesses and provide consumers with access to verified sellers offering high-quality hemp products.
+            </p>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3>Marketplace</h3>
+                    <p>Browse a wide range of hemp-based products from trusted sellers.</p>
+                    <a href="search.html" class="btn">Explore Now</a>
+                </div>
+                <div class="service-item">
+                    <h3>Add Products</h3>
+                    <p>Sellers can easily list their products and manage their inventory.</p>
+                    <a href="add-product.html" class="btn">Get Started</a>
+                </div>
+                <div class="service-item">
+                    <h3>Secure Transactions</h3>
+                    <p>All payments are safe, ensuring trust between buyers and sellers.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Support</h3>
+                    <p>Need help? Contact us anytime for assistance with your orders or account.</p>
+                    <a href="contact.html" class="btn">Contact Us</a>
+                </div>
             </div>
         </section>
 
         <!-- Featured Products Section -->
-        <section class="featured-products">
-            <div class="container">
-                <h2>Featured Products</h2>
-                <div class="product-grid">
-                    <div class="product-item">
-                        <img src="assets/images/hemp-oil.jpg" alt="Hemp Oil">
-                        <h3>Hemp Oil</h3>
-                        <p>Pure organic hemp oil for wellness.</p>
-                        <a href="search.html" class="btn secondary">View Details</a>
-                    </div>
-                    <div class="product-item">
-                        <img src="assets/images/hemp-seeds.jpg" alt="Hemp Seeds">
-                        <h3>Hemp Seeds</h3>
-                        <p>High-quality hemp seeds for nutrition.</p>
-                        <a href="search.html" class="btn secondary">View Details</a>
-                    </div>
-                    <div class="product-item">
-                        <img src="assets/images/hemp-lotion.jpg" alt="Hemp Lotion">
-                        <h3>Hemp Lotion</h3>
-                        <p>Moisturizing hemp lotion for skin care.</p>
-                        <a href="search.html" class="btn secondary">View Details</a>
-                    </div>
+        <section class="featured-products container">
+            <h2>Featured Products</h2>
+            <div class="product-list">
+                <div class="product-item">
+                    <img src="/assets/images/hemp-oil.jpg" alt="Hemp Oil">
+                    <h3>Hemp Oil</h3>
+                    <p>Seller: Green Farms</p>
+                    <p>Location: Denver, USA</p>
+                    <p>Price: $19.99 per liter</p>
+                    <a href="search.html" class="btn">View Product</a>
+                </div>
+                <div class="product-item">
+                    <img src="/assets/images/hemp-lotion.jpg" alt="Hemp Lotion">
+                    <h3>Hemp Lotion</h3>
+                    <p>Seller: Nature Glow</p>
+                    <p>Location: Seattle, USA</p>
+                    <p>Price: $14.99 per bottle</p>
+                    <a href="search.html" class="btn">View Product</a>
+                </div>
+                <div class="product-item">
+                    <img src="/assets/images/hemp-seeds.jpg" alt="Hemp Seeds">
+                    <h3>Hemp Seeds</h3>
+                    <p>Seller: Organic Farms</p>
+                    <p>Location: Austin, USA</p>
+                    <p>Price: $9.99 per pack</p>
+                    <a href="search.html" class="btn">View Product</a>
+                </div>
+                <div class="product-item">
+                    <img src="/assets/images/cbd-gummies.jpg" alt="CBD Gummies">
+                    <h3>CBD Gummies</h3>
+                    <p>Seller: Hemp Delights</p>
+                    <p>Location: Miami, USA</p>
+                    <p>Price: $24.99 per jar</p>
+                    <a href="search.html" class="btn">View Product</a>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <section class="testimonials">
-            <div class="container">
-                <h2>What Our Customers Say</h2>
-                <div class="testimonial-grid">
-                    <div class="testimonial">
-                        <p>"Hemp Horizon Shop has revolutionized my business. The platform is simple and easy to use!"</p>
-                        <span>- Jane D., Seller</span>
-                    </div>
-                    <div class="testimonial">
-                        <p>"I found the best quality hemp products here. Highly recommend to everyone."</p>
-                        <span>- John S., Buyer</span>
-                    </div>
-                </div>
-            </div>
+        <!-- Call-to-Action Section -->
+        <section class="cta" style="background-color: #004d40; color: white; padding: 2em; text-align: center;">
+            <h2>Join Hemp Horizon Shop Today</h2>
+            <p>Sign up now to start buying or selling hemp products on our trusted platform.</p>
+            <a href="register.html" class="btn">Register</a>
+            <a href="login.html" class="btn secondary">Login</a>
         </section>
     </main>
-
-    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-links">
-                <a href="#about">About</a>
-                <a href="register.html">Register</a>
-                <a href="search.html">Marketplace</a>
-                <a href="#contact">Contact</a>
-            </div>
             <p>&copy; 2024 Hemp Horizon Shop</p>
         </div>
     </footer>
