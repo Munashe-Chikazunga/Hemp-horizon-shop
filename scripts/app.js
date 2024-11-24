@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     // ========================
-    // Form Toggling for Registration
+    // Form Toggling for Registration Page
     // ========================
     const buyerBtn = document.getElementById("buyer-btn");
     const sellerBtn = document.getElementById("seller-btn");
@@ -32,12 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const productList = document.getElementById("product-list");
 
     const products = [
-        { name: "Hemp Oil", seller: "John's Hemp", location: "Denver, USA", price: 19.99, unit: "per liter", description: "Organic hemp oil for wellness.", image: "/assets/images/hemp-oil.jpg" },
-        { name: "Hemp Lotion", seller: "Green Glow", location: "Seattle, USA", price: 14.99, unit: "per bottle", description: "Moisturizing hemp lotion for skincare.", image: "/assets/images/hemp-lotion.jpg" },
-        { name: "Hemp Seeds", seller: "Nature's Best", location: "Austin, USA", price: 9.99, unit: "per pack", description: "High-quality hemp seeds for planting or consumption.", image: "/assets/images/hemp-seeds.jpg" },
-        { name: "CBD Gummies", seller: "Hemp Delights", location: "Miami, USA", price: 24.99, unit: "per jar", description: "Tasty CBD-infused gummies for relaxation.", image: "/assets/images/cbd-gummies.jpg" },
-        { name: "Hemp Tea", seller: "Relaxing Herbs", location: "Portland, USA", price: 12.99, unit: "per box", description: "Soothing and relaxing hemp-based tea.", image: "/assets/images/hemp-tea.jpg" },
-        { name: "Hemp Protein", seller: "HealthNut", location: "San Diego, USA", price: 29.99, unit: "per tub", description: "Nutrient-packed hemp protein powder.", image: "/assets/images/hemp-protein.jpg" },
+        { name: "Hemp Oil", price: 19.99, description: "Organic hemp oil for wellness", image: "/assets/images/hemp-oil.jpg" },
+        { name: "Hemp Lotion", price: 14.99, description: "Moisturizing hemp lotion for skincare", image: "/assets/images/hemp-lotion.jpg" },
+        { name: "Hemp Seeds", price: 9.99, description: "High-quality hemp seeds", image: "/assets/images/hemp-seeds.jpg" },
+        { name: "CBD Gummies", price: 24.99, description: "Tasty CBD-infused gummies", image: "/assets/images/cbd-gummies.jpg" },
+        { name: "Hemp Tea", price: 12.99, description: "Relaxing hemp-based tea", image: "/assets/images/hemp-tea.jpg" },
+        { name: "Hemp Protein", price: 29.99, description: "Nutrient-packed hemp protein powder", image: "/assets/images/hemp-protein.jpg" },
     ];
 
     if (searchForm && searchInput && productList) {
@@ -53,11 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="product-item">
                             <img src="${product.image}" alt="${product.name}">
                             <h3>${product.name}</h3>
-                            <p><strong>Seller:</strong> ${product.seller}</p>
-                            <p><strong>Location:</strong> ${product.location}</p>
-                            <p><strong>Price:</strong> $${product.price.toFixed(2)} ${product.unit}</p>
                             <p>${product.description}</p>
-                            <button class="btn" onclick="addToCart('${product.name}')">Add to Cart</button>
+                            <p><strong>Price:</strong> $${product.price.toFixed(2)}</p>
+                            <button class="btn" onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
                         </div>
                     `;
                     productList.insertAdjacentHTML("beforeend", productHTML);
@@ -79,26 +77,23 @@ document.addEventListener("DOMContentLoaded", () => {
     // ========================
     // Cart Management
     // ========================
-    let cart = [];
+    let cart = JSON.parse(localStorage.getItem("cart")) || []; // Retrieve cart from localStorage or initialize
+
     const cartItems = document.getElementById("cart-items");
     const checkoutButton = document.getElementById("checkout-button");
-
-    window.addToCart = (productName) => {
-        cart.push(productName);
-        alert(`${productName} has been added to your cart.`);
-        updateCartDisplay();
-    };
 
     const updateCartDisplay = () => {
         if (cartItems) {
             if (cart.length > 0) {
                 cartItems.innerHTML = cart
-                    .map((item, index) => `
+                    .map(
+                        (item, index) => `
                         <li class="cart-item">
-                            ${item}
+                            ${item.name} - $${item.price.toFixed(2)}
                             <button class="btn secondary" onclick="removeFromCart(${index})">Remove</button>
                         </li>
-                    `)
+                    `
+                    )
                     .join("");
             } else {
                 cartItems.innerHTML = "<p>Your cart is empty.</p>";
@@ -106,9 +101,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    window.addToCart = (productName, productPrice) => {
+        const product = { name: productName, price: productPrice };
+        cart.push(product);
+        localStorage.setItem("cart", JSON.stringify(cart)); // Save cart to localStorage
+        alert(`${productName} has been added to your cart.`);
+        updateCartDisplay();
+    };
+
     window.removeFromCart = (index) => {
-        const removedItem = cart.splice(index, 1)[0];
-        alert(`${removedItem} has been removed from your cart.`);
+        const removedItem = cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart)); // Update localStorage
+        alert(`${removedItem[0].name} has been removed from your cart.`);
         updateCartDisplay();
     };
 
@@ -117,12 +121,15 @@ document.addEventListener("DOMContentLoaded", () => {
             if (cart.length > 0) {
                 alert("Checkout successful! Thank you for your purchase.");
                 cart = [];
+                localStorage.setItem("cart", JSON.stringify(cart)); // Clear cart in localStorage
                 updateCartDisplay();
             } else {
                 alert("Your cart is empty. Add items to proceed.");
             }
         });
     }
+
+    updateCartDisplay(); // Initialize cart display on page load
 
     // ========================
     // IndexedDB Integration for User and Product Management
