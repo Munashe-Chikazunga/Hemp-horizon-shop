@@ -5,22 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
     <style>
-        /* General Styling */
+        /* Simplified CSS for Styling */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f9f9f9;
             color: #333;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navbar */
         .navbar {
             background: #004d40;
             color: white;
@@ -54,55 +47,35 @@
             background: #459960;
         }
 
-        /* Cart Page */
         .cart-page {
-            background: white;
+            max-width: 800px;
             margin: 2em auto;
+            background: white;
             padding: 2em;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
         }
 
-        .cart-page h2 {
-            font-size: 2em;
+        h2 {
+            text-align: center;
             margin-bottom: 1em;
         }
 
-        #cart-items {
+        ul {
             list-style: none;
             padding: 0;
-            margin: 1em 0;
         }
 
         .cart-item {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 0.75em;
-            margin: 0.5em 0;
-            background: #f4f4f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .cart-item button {
-            background: #ff4d4d;
-            color: white;
-            border: none;
-            padding: 0.5em 1em;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .cart-item button:hover {
-            background: #e60000;
+            padding: 0.5em 0;
+            border-bottom: 1px solid #ddd;
         }
 
         .btn {
             padding: 0.75em 1.5em;
-            background: #57a773;
+            background-color: #004d40;
             color: white;
             border: none;
             border-radius: 5px;
@@ -111,10 +84,22 @@
         }
 
         .btn:hover {
-            background: #459960;
+            background-color: #00332d;
         }
 
-        /* Footer */
+        .btn.secondary {
+            background-color: #ff4d4d;
+        }
+
+        .btn.secondary:hover {
+            background-color: #e60000;
+        }
+
+        .empty-cart {
+            text-align: center;
+            color: #666;
+        }
+
         footer {
             background: #333;
             color: white;
@@ -122,39 +107,75 @@
             padding: 1em 0;
             margin-top: 2em;
         }
-
-        footer p {
-            margin: 0;
-        }
     </style>
-    <script defer src="scripts/app.js"></script>
+    <script defer>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cartItems = document.getElementById("cart-items");
+            const checkoutButton = document.getElementById("checkout-button");
+
+            // Load cart from localStorage
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // Update cart display
+            const updateCartDisplay = () => {
+                if (cart.length > 0) {
+                    cartItems.innerHTML = cart
+                        .map(
+                            (item, index) => `
+                            <li class="cart-item">
+                                ${item.name} - $${item.price.toFixed(2)}
+                                <button class="btn secondary" onclick="removeFromCart(${index})">Remove</button>
+                            </li>
+                        `
+                        )
+                        .join("");
+                } else {
+                    cartItems.innerHTML = "<p class='empty-cart'>Your cart is empty.</p>";
+                }
+            };
+
+            // Remove item from cart
+            window.removeFromCart = (index) => {
+                const removedItem = cart.splice(index, 1);
+                localStorage.setItem("cart", JSON.stringify(cart)); // Update localStorage
+                alert(`${removedItem.name} has been removed from your cart.`);
+                updateCartDisplay();
+            };
+
+            // Checkout and navigate to payment page
+            if (checkoutButton) {
+                checkoutButton.addEventListener("click", () => {
+                    if (cart.length > 0) {
+                        window.location.href = "payment.html"; // Redirect to payment page
+                    } else {
+                        alert("Your cart is empty. Add items to proceed.");
+                    }
+                });
+            }
+
+            updateCartDisplay(); // Initialize cart display
+        });
+    </script>
 </head>
 <body>
-    <!-- Navbar -->
     <header class="navbar">
         <div class="container">
             <h1>Hemp Horizon Shop</h1>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="search.html">Marketplace</a>
-                <a href="register.html">Register</a>
             </nav>
         </div>
     </header>
-
-    <!-- Main Content -->
     <main>
-        <div class="container cart-page">
+        <div class="cart-page">
             <h2>Your Shopping Cart</h2>
             <ul id="cart-items">
-                <!-- Cart items will be dynamically populated here -->
-                <p>Your cart is empty.</p>
+                <!-- Cart items will be dynamically rendered here -->
             </ul>
             <button id="checkout-button" class="btn">Checkout</button>
         </div>
     </main>
-
-    <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2024 Hemp Horizon Shop</p>
