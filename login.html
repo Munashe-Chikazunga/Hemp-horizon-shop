@@ -4,8 +4,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Hemp Horizon Shop</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <script defer src="scripts/app.js"></script>
+    <style>
+        /* Embedded CSS for Demo Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .navbar {
+            background: #004d40;
+            color: white;
+            padding: 1em 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        .navbar nav {
+            display: flex;
+            gap: 1em;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            background: #57a773;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background: #459960;
+        }
+
+        .form-container {
+            background: white;
+            max-width: 500px;
+            margin: 2em auto;
+            padding: 2em;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 1em;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.5em;
+            margin-top: 0.5em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 0.75em;
+            margin-top: 1.5em;
+            background: #57a773;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #459960;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 1em;
+        }
+
+        p a {
+            color: #004d40;
+            text-decoration: none;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            margin-top: 2em;
+        }
+    </style>
+    <script defer>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Demo Account
+            const demoUser = { username: "Davison01", password: "123Davison" };
+
+            // Retrieve form and add event listener
+            const loginForm = document.getElementById("login-form");
+
+            const validateLogin = (username, password) => {
+                if (username === demoUser.username && password === demoUser.password) {
+                    alert("Login successful! Welcome, Davison01.");
+                    autoAddDemoProduct(); // Automatically add a demo product to the cart
+                    window.location.href = "cart.html"; // Redirect to cart
+                } else {
+                    alert("Invalid username or password.");
+                }
+            };
+
+            const autoAddDemoProduct = () => {
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                const demoProduct = { name: "Hemp Oil (Demo)", price: 19.99 };
+                cart.push(demoProduct);
+                localStorage.setItem("cart", JSON.stringify(cart)); // Save demo product to cart
+                alert(`${demoProduct.name} has been added to your cart for the demo.`);
+            };
+
+            loginForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+                validateLogin(username, password);
+            });
+        });
+    </script>
 </head>
 <body>
     <header class="navbar">
