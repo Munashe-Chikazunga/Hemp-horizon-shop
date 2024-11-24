@@ -4,138 +4,216 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Hemp Horizon Shop</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <script defer src="scripts/app.js"></script>
+    <style>
+        /* Inline CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .navbar {
+            background: #004d40;
+            color: white;
+            padding: 1em 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        .navbar nav {
+            display: flex;
+            gap: 1em;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            background: #57a773;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background: #459960;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 2em auto;
+            background: white;
+            padding: 2em;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 1em;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.5em;
+            margin-top: 0.5em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            display: inline-block;
+            margin-top: 1.5em;
+            padding: 0.75em 1.5em;
+            background: #57a773;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #459960;
+        }
+
+        .form-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            margin-bottom: 2em;
+        }
+
+        .form-toggle button {
+            padding: 0.5em 1em;
+            background: #ddd;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .form-toggle button.active {
+            background: #57a773;
+            color: white;
+        }
+
+        .form-toggle button:hover {
+            background: #459960;
+            color: white;
+        }
+
+        form.hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navbar -->
     <header class="navbar">
         <div class="container">
-            <h1>Register on Hemp Horizon Shop</h1>
+            <h1>Hemp Horizon Shop</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="login.html">Login</a>
+            </nav>
         </div>
     </header>
+    <main>
+        <div class="form-container">
+            <h2>Register</h2>
+            <!-- Toggle Between Buyer and Seller -->
+            <div class="form-toggle">
+                <button id="buyer-btn" class="active">Register as Buyer</button>
+                <button id="seller-btn">Register as Seller</button>
+            </div>
 
-    <!-- Main Content -->
-    <main class="container form-container">
-        <!-- Toggle Between Buyer and Seller -->
-        <div class="form-toggle">
-            <button id="buyer-btn" class="btn active" aria-controls="buyer-form" aria-expanded="true">Register as Buyer</button>
-            <button id="seller-btn" class="btn" aria-controls="seller-form" aria-expanded="false">Register as Seller</button>
+            <!-- Buyer Registration Form -->
+            <form id="buyer-form" class="">
+                <label for="buyer-name">Full Name</label>
+                <input type="text" id="buyer-name" placeholder="Enter your full name" required>
+
+                <label for="buyer-email">Email</label>
+                <input type="email" id="buyer-email" placeholder="Enter your email" required>
+
+                <label for="buyer-location">Location</label>
+                <input type="text" id="buyer-location" placeholder="City, State" required>
+
+                <label for="buyer-preferences">What are you looking for?</label>
+                <textarea id="buyer-preferences" placeholder="E.g., Hemp oils, lotions, seeds" rows="4"></textarea>
+
+                <button type="submit">Register as Buyer</button>
+            </form>
+
+            <!-- Seller Registration Form -->
+            <form id="seller-form" class="hidden">
+                <label for="seller-name">Full Name</label>
+                <input type="text" id="seller-name" placeholder="Enter your full name" required>
+
+                <label for="seller-email">Email</label>
+                <input type="email" id="seller-email" placeholder="Enter your email" required>
+
+                <label for="business-name">Business Name</label>
+                <input type="text" id="business-name" placeholder="Enter your business name" required>
+
+                <label for="business-type">Type of Business</label>
+                <input type="text" id="business-type" placeholder="E.g., Retailer, Wholesaler" required>
+
+                <label for="business-location">Location</label>
+                <input type="text" id="business-location" placeholder="City, State" required>
+
+                <label for="business-description">Describe your business</label>
+                <textarea id="business-description" placeholder="Briefly describe your business" rows="4"></textarea>
+
+                <button type="submit">Register as Seller</button>
+            </form>
         </div>
-
-        <!-- Buyer Registration Form -->
-        <form id="buyer-form" class="registration-form" aria-labelledby="buyer-btn">
-            <h2>Buyer Registration</h2>
-            
-            <label for="buyer-name">Full Name</label>
-            <input 
-                type="text" 
-                id="buyer-name" 
-                name="buyer-name" 
-                placeholder="Enter your name" 
-                required 
-                aria-required="true">
-
-            <label for="buyer-email">Email</label>
-            <input 
-                type="email" 
-                id="buyer-email" 
-                name="buyer-email" 
-                placeholder="Enter your email" 
-                required 
-                aria-required="true">
-
-            <label for="buyer-preferences">What products are you looking for?</label>
-            <textarea 
-                id="buyer-preferences" 
-                name="buyer-preferences" 
-                rows="3" 
-                placeholder="E.g., Hemp oils, lotions, seeds"></textarea>
-
-            <label for="buyer-location">Location</label>
-            <input 
-                type="text" 
-                id="buyer-location" 
-                name="buyer-location" 
-                placeholder="City, State" 
-                required 
-                aria-required="true">
-
-            <button type="submit" class="btn">Register as Buyer</button>
-        </form>
-
-        <!-- Seller Registration Form -->
-        <form id="seller-form" class="registration-form hidden" aria-labelledby="seller-btn">
-            <h2>Seller Registration</h2>
-            
-            <label for="seller-name">Full Name</label>
-            <input 
-                type="text" 
-                id="seller-name" 
-                name="seller-name" 
-                placeholder="Enter your name" 
-                required 
-                aria-required="true">
-
-            <label for="seller-email">Email</label>
-            <input 
-                type="email" 
-                id="seller-email" 
-                name="seller-email" 
-                placeholder="Enter your email" 
-                required 
-                aria-required="true">
-
-            <label for="business-name">Business Name</label>
-            <input 
-                type="text" 
-                id="business-name" 
-                name="business-name" 
-                placeholder="Enter your business name" 
-                required 
-                aria-required="true">
-
-            <label for="business-type">Type of Business</label>
-            <input 
-                type="text" 
-                id="business-type" 
-                name="business-type" 
-                placeholder="E.g., Retailer, Wholesaler" 
-                required 
-                aria-required="true">
-
-            <label for="business-address">Business Address</label>
-            <textarea 
-                id="business-address" 
-                name="business-address" 
-                rows="3" 
-                placeholder="Enter your address"></textarea>
-
-            <label for="business-description">Describe your business</label>
-            <textarea 
-                id="business-description" 
-                name="business-description" 
-                rows="4" 
-                placeholder="E.g., We specialize in organic hemp oils"></textarea>
-
-            <label for="seller-location">Location</label>
-            <input 
-                type="text" 
-                id="seller-location" 
-                name="seller-location" 
-                placeholder="City, State" 
-                required 
-                aria-required="true">
-
-            <button type="submit" class="btn">Register as Seller</button>
-        </form>
     </main>
-
-    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 Hemp Horizon Shop. All Rights Reserved.</p>
+            <p>&copy; 2024 Hemp Horizon Shop</p>
         </div>
     </footer>
+    <script>
+        // Inline JavaScript
+        document.addEventListener("DOMContentLoaded", () => {
+            const buyerBtn = document.getElementById("buyer-btn");
+            const sellerBtn = document.getElementById("seller-btn");
+            const buyerForm = document.getElementById("buyer-form");
+            const sellerForm = document.getElementById("seller-form");
+
+            // Toggle Forms
+            buyerBtn.addEventListener("click", () => {
+                buyerBtn.classList.add("active");
+                sellerBtn.classList.remove("active");
+                buyerForm.classList.remove("hidden");
+                sellerForm.classList.add("hidden");
+            });
+
+            sellerBtn.addEventListener("click", () => {
+                sellerBtn.classList.add("active");
+                buyerBtn.classList.remove("active");
+                sellerForm.classList.remove("hidden");
+                buyerForm.classList.add("hidden");
+            });
+        });
+    </script>
 </body>
 </html>
