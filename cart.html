@@ -116,7 +116,6 @@
             // Load cart from localStorage
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-            // Update cart display
             const updateCartDisplay = () => {
                 if (cart.length > 0) {
                     cartItems.innerHTML = cart
@@ -134,26 +133,24 @@
                 }
             };
 
-            // Remove item from cart
             window.removeFromCart = (index) => {
                 const removedItem = cart.splice(index, 1);
-                localStorage.setItem("cart", JSON.stringify(cart)); // Update localStorage
+                localStorage.setItem("cart", JSON.stringify(cart));
                 alert(`${removedItem.name} has been removed from your cart.`);
                 updateCartDisplay();
             };
 
-            // Checkout and navigate to payment page
             if (checkoutButton) {
                 checkoutButton.addEventListener("click", () => {
                     if (cart.length > 0) {
-                        window.location.href = "payment.html"; // Redirect to payment page
+                        window.location.href = "payment.html";
                     } else {
                         alert("Your cart is empty. Add items to proceed.");
                     }
                 });
             }
 
-            updateCartDisplay(); // Initialize cart display
+            updateCartDisplay();
         });
     </script>
 </head>
