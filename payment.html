@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Hemp Horizon Shop</title>
+    <style>
+        /* Inline CSS for the Payment Page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .navbar {
+            background: #004d40;
+            color: white;
+            padding: 1em 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        .navbar nav {
+            display: flex;
+            gap: 1em;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            background: #57a773;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background: #459960;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 2em auto;
+            background: white;
+            padding: 2em;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 1em;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.5em;
+            margin-top: 0.5em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 0.75em;
+            margin-top: 1.5em;
+            background: #57a773;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #459960;
+        }
+
+        .form-note {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 1em;
+            text-align: center;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            margin-top: 2em;
+        }
+    </style>
+    <script defer>
+        document.addEventListener("DOMContentLoaded", () => {
+            const paymentForm = document.getElementById("payment-form");
+
+            paymentForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                // Simulate sending confirmation
+                alert("Your order has been placed! A confirmation email will be sent to you shortly.");
+                
+                // Clear the cart
+                localStorage.removeItem("cart");
+
+                // Redirect to a thank you page or home
+                window.location.href = "index.html";
+            });
+        });
+    </script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <h1>Hemp Horizon Shop</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="cart.html">Back to Cart</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="form-container">
+            <h2>Payment Details</h2>
+            <form id="payment-form">
+                <label for="address">Shipping Address</label>
+                <input type="text" id="address" placeholder="Enter your shipping address" required>
+
+                <label for="payment-method">Payment Method</label>
+                <select id="payment-method" required>
+                    <option value="" disabled selected>Select a payment method</option>
+                    <option value="credit-card">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="hemp-dollars">Hemp Dollars (In-house Token)</option>
+                </select>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email for confirmation" required>
+
+                <button type="submit">Place Order</button>
+                <p class="form-note">We will send a confirmation email with your order details after payment is completed.</p>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Hemp Horizon Shop</p>
+        </div>
+    </footer>
+</body>
+</html>
