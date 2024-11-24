@@ -1,10 +1,21 @@
+/* General Variables */
+:root {
+    --primary-color: #004d40;
+    --secondary-color: #57a773;
+    --light-color: #f9f9f9;
+    --text-color: #333;
+    --white-color: #fff;
+    --border-color: #ddd;
+    --hover-overlay: rgba(255, 255, 255, 0.2);
+}
+
 /* General Styling */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: var(--light-color);
+    color: var(--text-color);
     line-height: 1.6;
 }
 
@@ -16,9 +27,9 @@ body {
 
 /* Navbar */
 .navbar {
-    background: #004d40;
-    color: white;
-    padding: 1em 0;
+    background: var(--primary-color);
+    color: var(--white-color);
+    padding: 1em 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -31,15 +42,17 @@ body {
 .navbar h1 {
     font-size: 1.8em;
     margin: 0;
+    font-weight: bold;
 }
 
 .navbar nav {
     display: flex;
     gap: 1em;
+    flex-wrap: wrap;
 }
 
 .navbar nav a {
-    color: white;
+    color: var(--white-color);
     text-decoration: none;
     font-size: 1em;
     padding: 0.5em 1em;
@@ -48,7 +61,7 @@ body {
 }
 
 .navbar nav a:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--hover-overlay);
 }
 
 /* Hero Section */
@@ -59,7 +72,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--white-color);
     text-align: center;
     padding: 1em;
     position: relative;
@@ -77,8 +90,8 @@ body {
 
 .hero .btn {
     padding: 10px 20px;
-    color: white;
-    background: #57a773;
+    color: var(--white-color);
+    background: var(--secondary-color);
     text-decoration: none;
     border-radius: 5px;
     font-size: 1.2em;
@@ -117,8 +130,8 @@ body {
 .service-item {
     text-align: center;
     padding: 1.5em;
-    background: white;
-    border: 1px solid #ddd;
+    background: var(--white-color);
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -133,6 +146,17 @@ body {
 
 .service-item .btn {
     margin-top: 1em;
+    background: var(--secondary-color);
+    color: var(--white-color);
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background 0.3s ease;
+}
+
+.service-item .btn:hover {
+    background: #459960;
 }
 
 /* Featured Products */
@@ -147,9 +171,9 @@ body {
 }
 
 .product-item {
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 5px;
-    background: white;
+    background: var(--white-color);
     text-align: center;
     padding: 1em;
 }
@@ -172,8 +196,8 @@ body {
 
 .product-item .btn {
     padding: 0.5em 1em;
-    background: #004d40;
-    color: white;
+    background: var(--primary-color);
+    color: var(--white-color);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -186,7 +210,7 @@ body {
 
 /* Cart Page */
 .cart-page {
-    background: white;
+    background: var(--white-color);
     padding: 2em;
     margin-top: 2em;
     border-radius: 5px;
@@ -207,13 +231,13 @@ body {
     justify-content: space-between;
     align-items: center;
     background: #f4f4f9;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 5px;
 }
 
 .cart-item button {
     background: #ff4d4d;
-    color: white;
+    color: var(--white-color);
     border: none;
     padding: 0.5em 1em;
     border-radius: 5px;
@@ -228,8 +252,8 @@ body {
 /* Testimonials */
 .testimonials {
     padding: 3em 0;
-    background: #004d40;
-    color: white;
+    background: var(--primary-color);
+    color: var(--white-color);
     text-align: center;
 }
 
@@ -255,7 +279,7 @@ body {
 
 /* Forms */
 .form-container {
-    background: white;
+    background: var(--white-color);
     padding: 2em;
     margin: 2em auto;
     max-width: 500px;
@@ -273,15 +297,15 @@ form input, form textarea {
     width: 100%;
     padding: 0.5em;
     margin-top: 0.5em;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 5px;
 }
 
 form button {
     margin-top: 1.5em;
     padding: 0.75em;
-    background: #57a773;
-    color: white;
+    background: var(--secondary-color);
+    color: var(--white-color);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -300,26 +324,36 @@ form textarea {
 /* Call-to-Action Section */
 .cta {
     padding: 2em;
-    background-color: #004d40;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--white-color);
     text-align: center;
 }
 
 .cta .btn {
     margin: 1em;
+    padding: 10px 20px;
+    background: var(--secondary-color);
+    color: var(--white-color);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.cta .btn:hover {
+    background: #459960;
 }
 
 /* Footer */
 footer {
     background: #333;
-    color: white;
+    color: var(--white-color);
     text-align: center;
     padding: 1em 0;
     margin-top: 2em;
 }
 
 footer a {
-    color: #57a773;
+    color: var(--secondary-color);
     text-decoration: none;
     transition: color 0.3s ease;
 }
