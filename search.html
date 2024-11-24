@@ -13,77 +13,55 @@
         <div class="container">
             <h1>Hemp Horizon Shop</h1>
             <nav>
-                <a href="index.html">Home</a>
-                <a href="register.html">Register</a>
-                <a href="add-product.html">Add Product</a>
-                <a href="cart.html">Cart</a>
+                <a href="index.html" class="btn">Home</a>
+                <a href="cart.html" class="btn secondary">Cart</a>
             </nav>
         </div>
     </header>
 
-    <main>
-        <!-- Search Bar -->
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Search Section -->
         <section class="search-container">
-            <div class="container">
-                <h2>Find Your Hemp Products</h2>
-                <form id="search-form" class="search-bar" role="search">
-                    <input 
-                        type="text" 
-                        id="search" 
-                        placeholder="Search for products..." 
-                        required 
-                        aria-label="Search Products">
-                    <button type="submit" class="btn">Search</button>
-                </form>
-            </div>
+            <h2>Find Your Hemp Products</h2>
+            <form id="search-form" class="search-bar" role="search">
+                <input 
+                    type="text" 
+                    id="search" 
+                    placeholder="Search for products..." 
+                    aria-label="Search products" 
+                    required>
+                <button type="submit" class="btn">Search</button>
+            </form>
         </section>
 
         <!-- Product Filters -->
         <section class="filter-container">
-            <div class="container">
-                <h3>Filter Products</h3>
-                <form id="filter-form">
-                    <label for="category-filter">Category:</label>
-                    <select id="category-filter" aria-label="Filter by Category">
-                        <option value="">All Categories</option>
-                        <option value="Oils">Oils</option>
-                        <option value="Lotions">Lotions</option>
-                        <option value="Seeds">Seeds</option>
-                        <option value="Edibles">Edibles</option>
-                    </select>
-                    <label for="price-filter">Price:</label>
-                    <select id="price-filter" aria-label="Filter by Price">
-                        <option value="">All Prices</option>
-                        <option value="low">Low to High</option>
-                        <option value="high">High to Low</option>
-                    </select>
-                </form>
-            </div>
+            <h3>Filter Products</h3>
+            <form id="filter-form" class="filter-bar">
+                <label for="category-filter">Category:</label>
+                <select id="category-filter" aria-label="Filter by category">
+                    <option value="">All Categories</option>
+                    <option value="Oils">Oils</option>
+                    <option value="Lotions">Lotions</option>
+                    <option value="Seeds">Seeds</option>
+                    <option value="Edibles">Edibles</option>
+                </select>
+
+                <label for="price-filter">Price:</label>
+                <select id="price-filter" aria-label="Filter by price">
+                    <option value="">All Prices</option>
+                    <option value="low">Low to High</option>
+                    <option value="high">High to Low</option>
+                </select>
+            </form>
         </section>
 
         <!-- Product List -->
         <section class="product-list-container">
-            <div class="container">
-                <h2>Available Products</h2>
-                <div id="product-list" class="product-list">
-                    <!-- Products will be dynamically loaded here -->
-                    <!-- Example static content for structure demonstration -->
-                    <div class="product-item">
-                        <img src="assets/images/hemp-oil.jpg" alt="Hemp Oil">
-                        <h3>Hemp Oil</h3>
-                        <p>Category: Oils</p>
-                        <p>Price: $19.99</p>
-                        <button class="btn">Add to Cart</button>
-                    </div>
-                    <div class="product-item">
-                        <img src="assets/images/hemp-lotion.jpg" alt="Hemp Lotion">
-                        <h3>Hemp Lotion</h3>
-                        <p>Category: Lotions</p>
-                        <p>Price: $14.99</p>
-                        <button class="btn">Add to Cart</button>
-                    </div>
-                    <!-- More dynamic items will be added via JavaScript -->
-                </div>
+            <h2>Available Products</h2>
+            <div id="product-list" class="product-list">
+                <!-- Products will be dynamically loaded here -->
             </div>
         </section>
     </main>
