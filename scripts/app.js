@@ -104,9 +104,9 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addToCart = (productName, productPrice) => {
         const product = { name: productName, price: productPrice };
         cart.push(product);
-        localStorage.setItem("cart", JSON.stringify(cart)); // Save cart to localStorage
+        localStorage.setItem("cart", JSON.stringify(cart)); // Save to localStorage
         alert(`${productName} has been added to your cart.`);
-        updateCartDisplay();
+        updateCartDisplay(); // Update display if on the cart page
     };
 
     window.removeFromCart = (index) => {
