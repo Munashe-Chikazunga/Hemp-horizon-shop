@@ -8,63 +8,134 @@
     <script defer src="scripts/app.js"></script>
 </head>
 <body>
+    <!-- Navbar -->
     <header class="navbar">
-        <h1>Register on Hemp Horizon Shop</h1>
+        <div class="container">
+            <h1>Register on Hemp Horizon Shop</h1>
+        </div>
     </header>
-    <main class="form-container">
+
+    <!-- Main Content -->
+    <main class="container form-container">
         <!-- Toggle Between Buyer and Seller -->
         <div class="form-toggle">
-            <button id="buyer-btn" class="btn active">Register as Buyer</button>
-            <button id="seller-btn" class="btn">Register as Seller</button>
+            <button id="buyer-btn" class="btn active" aria-controls="buyer-form" aria-expanded="true">Register as Buyer</button>
+            <button id="seller-btn" class="btn" aria-controls="seller-form" aria-expanded="false">Register as Seller</button>
         </div>
 
         <!-- Buyer Registration Form -->
-        <form id="buyer-form" class="registration-form">
+        <form id="buyer-form" class="registration-form" aria-labelledby="buyer-btn">
             <h2>Buyer Registration</h2>
+            
             <label for="buyer-name">Full Name</label>
-            <input type="text" id="buyer-name" name="buyer-name" placeholder="Enter your name" required>
+            <input 
+                type="text" 
+                id="buyer-name" 
+                name="buyer-name" 
+                placeholder="Enter your name" 
+                required 
+                aria-required="true">
 
             <label for="buyer-email">Email</label>
-            <input type="email" id="buyer-email" name="buyer-email" placeholder="Enter your email" required>
+            <input 
+                type="email" 
+                id="buyer-email" 
+                name="buyer-email" 
+                placeholder="Enter your email" 
+                required 
+                aria-required="true">
 
             <label for="buyer-preferences">What products are you looking for?</label>
-            <textarea id="buyer-preferences" name="buyer-preferences" rows="3" placeholder="E.g., Hemp oils, lotions, seeds"></textarea>
+            <textarea 
+                id="buyer-preferences" 
+                name="buyer-preferences" 
+                rows="3" 
+                placeholder="E.g., Hemp oils, lotions, seeds"></textarea>
 
             <label for="buyer-location">Location</label>
-            <input type="text" id="buyer-location" name="buyer-location" placeholder="City, State" required>
+            <input 
+                type="text" 
+                id="buyer-location" 
+                name="buyer-location" 
+                placeholder="City, State" 
+                required 
+                aria-required="true">
 
             <button type="submit" class="btn">Register as Buyer</button>
         </form>
 
         <!-- Seller Registration Form -->
-        <form id="seller-form" class="registration-form hidden">
+        <form id="seller-form" class="registration-form hidden" aria-labelledby="seller-btn">
             <h2>Seller Registration</h2>
+            
             <label for="seller-name">Full Name</label>
-            <input type="text" id="seller-name" name="seller-name" placeholder="Enter your name" required>
+            <input 
+                type="text" 
+                id="seller-name" 
+                name="seller-name" 
+                placeholder="Enter your name" 
+                required 
+                aria-required="true">
 
             <label for="seller-email">Email</label>
-            <input type="email" id="seller-email" name="seller-email" placeholder="Enter your email" required>
+            <input 
+                type="email" 
+                id="seller-email" 
+                name="seller-email" 
+                placeholder="Enter your email" 
+                required 
+                aria-required="true">
 
             <label for="business-name">Business Name</label>
-            <input type="text" id="business-name" name="business-name" placeholder="Enter your business name" required>
+            <input 
+                type="text" 
+                id="business-name" 
+                name="business-name" 
+                placeholder="Enter your business name" 
+                required 
+                aria-required="true">
 
             <label for="business-type">Type of Business</label>
-            <input type="text" id="business-type" name="business-type" placeholder="E.g., Retailer, Wholesaler" required>
+            <input 
+                type="text" 
+                id="business-type" 
+                name="business-type" 
+                placeholder="E.g., Retailer, Wholesaler" 
+                required 
+                aria-required="true">
 
             <label for="business-address">Business Address</label>
-            <textarea id="business-address" name="business-address" rows="3" placeholder="Enter your address"></textarea>
+            <textarea 
+                id="business-address" 
+                name="business-address" 
+                rows="3" 
+                placeholder="Enter your address"></textarea>
 
             <label for="business-description">Describe your business</label>
-            <textarea id="business-description" name="business-description" rows="4" placeholder="E.g., We specialize in organic hemp oils"></textarea>
+            <textarea 
+                id="business-description" 
+                name="business-description" 
+                rows="4" 
+                placeholder="E.g., We specialize in organic hemp oils"></textarea>
 
             <label for="seller-location">Location</label>
-            <input type="text" id="seller-location" name="seller-location" placeholder="City, State" required>
+            <input 
+                type="text" 
+                id="seller-location" 
+                name="seller-location" 
+                placeholder="City, State" 
+                required 
+                aria-required="true">
 
             <button type="submit" class="btn">Register as Seller</button>
         </form>
     </main>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Hemp Horizon Shop</p>
+        <div class="container">
+            <p>&copy; 2024 Hemp Horizon Shop. All Rights Reserved.</p>
+        </div>
     </footer>
 </body>
 </html>
