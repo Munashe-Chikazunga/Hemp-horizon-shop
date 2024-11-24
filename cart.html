@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
     <style>
-        /* Simplified CSS for Styling */
+        /* Styling for Cart Page */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -29,25 +29,21 @@
             font-size: 1.8em;
         }
 
-        .navbar nav {
-            display: flex;
-            gap: 1em;
-        }
-
-        .navbar a {
+        .navbar nav a {
             text-decoration: none;
             color: white;
             background: #57a773;
             padding: 0.5em 1em;
             border-radius: 5px;
             transition: background 0.3s ease;
+            margin-left: 10px;
         }
 
-        .navbar a:hover {
+        .navbar nav a:hover {
             background: #459960;
         }
 
-        .cart-page {
+        .container {
             max-width: 800px;
             margin: 2em auto;
             background: white;
@@ -69,13 +65,20 @@
         .cart-item {
             display: flex;
             justify-content: space-between;
-            padding: 0.5em 0;
-            border-bottom: 1px solid #ddd;
+            align-items: center;
+            margin-bottom: 1em;
+            padding: 0.5em 1em;
+            background: #f4f4f4;
+            border-radius: 5px;
+        }
+
+        .cart-item span {
+            font-weight: bold;
         }
 
         .btn {
-            padding: 0.75em 1.5em;
-            background-color: #004d40;
+            padding: 0.5em 1em;
+            background: #004d40;
             color: white;
             border: none;
             border-radius: 5px;
@@ -84,15 +87,15 @@
         }
 
         .btn:hover {
-            background-color: #00332d;
+            background: #00332d;
         }
 
         .btn.secondary {
-            background-color: #ff4d4d;
+            background: #ff4d4d;
         }
 
         .btn.secondary:hover {
-            background-color: #e60000;
+            background: #e60000;
         }
 
         .empty-cart {
@@ -113,16 +116,17 @@
             const cartItems = document.getElementById("cart-items");
             const checkoutButton = document.getElementById("checkout-button");
 
-            // Load cart from localStorage
+            // Retrieve cart data from localStorage
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+            // Function to update the cart display
             const updateCartDisplay = () => {
                 if (cart.length > 0) {
                     cartItems.innerHTML = cart
                         .map(
                             (item, index) => `
                             <li class="cart-item">
-                                ${item.name} - $${item.price.toFixed(2)}
+                                <span>${item.name} - $${item.price.toFixed(2)}</span>
                                 <button class="btn secondary" onclick="removeFromCart(${index})">Remove</button>
                             </li>
                         `
@@ -133,24 +137,28 @@
                 }
             };
 
+            // Function to remove an item from the cart
             window.removeFromCart = (index) => {
                 const removedItem = cart.splice(index, 1);
-                localStorage.setItem("cart", JSON.stringify(cart));
+                localStorage.setItem("cart", JSON.stringify(cart)); // Update localStorage
                 alert(`${removedItem.name} has been removed from your cart.`);
                 updateCartDisplay();
             };
 
+            // Function to handle checkout
             if (checkoutButton) {
                 checkoutButton.addEventListener("click", () => {
                     if (cart.length > 0) {
-                        window.location.href = "payment.html";
+                        // Save cart to localStorage before redirect
+                        localStorage.setItem("cart", JSON.stringify(cart));
+                        window.location.href = "payment.html"; // Redirect to payment.html
                     } else {
                         alert("Your cart is empty. Add items to proceed.");
                     }
                 });
             }
 
-            updateCartDisplay();
+            updateCartDisplay(); // Initialize cart display on page load
         });
     </script>
 </head>
@@ -164,14 +172,12 @@
             </nav>
         </div>
     </header>
-    <main>
-        <div class="cart-page">
-            <h2>Your Shopping Cart</h2>
-            <ul id="cart-items">
-                <!-- Cart items will be dynamically rendered here -->
-            </ul>
-            <button id="checkout-button" class="btn">Checkout</button>
-        </div>
+    <main class="container">
+        <h2>Your Shopping Cart</h2>
+        <ul id="cart-items">
+            <!-- Cart items will be dynamically rendered here -->
+        </ul>
+        <button id="checkout-button" class="btn">Checkout</button>
     </main>
     <footer>
         <div class="container">
