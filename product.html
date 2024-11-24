@@ -7,25 +7,39 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <header>
-        <h1>Hemp Horizon Shop</h1>
-        <nav>
-            <a href="products.html">Back to Products</a>
-            <a href="cart.html">Cart</a>
-        </nav>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="container">
+            <h1>Hemp Horizon Shop</h1>
+            <nav>
+                <a href="products.html" class="btn">Back to Products</a>
+                <a href="cart.html" class="btn secondary">View Cart</a>
+            </nav>
+        </div>
     </header>
+
+    <!-- Main Content -->
     <main>
-        <section class="product-detail">
-            <img src="../assets/images/product1.jpg" alt="Hemp Oil">
-            <h3>Hemp Oil</h3>
-            <p>$19.99</p>
-            <p>Pure and organic hemp oil for all your wellness needs.</p>
-            <button class="btn" onclick="addToCart('Hemp Oil')">Add to Cart</button>
+        <section class="product-detail container">
+            <div class="product-image">
+                <img src="../assets/images/product1.jpg" alt="Hemp Oil" class="responsive-img">
+            </div>
+            <div class="product-info">
+                <h2>Hemp Oil</h2>
+                <p class="price">$19.99</p>
+                <p class="description">Pure and organic hemp oil for all your wellness needs. Rich in nutrients and perfect for daily use.</p>
+                <button class="btn" onclick="addToCart('Hemp Oil')">Add to Cart</button>
+            </div>
         </section>
     </main>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Hemp Horizon Shop</p>
+        <div class="container">
+            <p>&copy; 2024 Hemp Horizon Shop. All Rights Reserved.</p>
+        </div>
     </footer>
+
     <script src="../scripts/app.js"></script>
 </body>
 </html>
